@@ -15,12 +15,61 @@ const rowElements = document.querySelectorAll(".row")
 // Call this function from WITHIN your row elements loop. Then you will, in turn,
 // need to loop over the resulting cell elements. But where should this whole
 // NESTED LOOP go? Think through the user's experience: when should WHAT happen? 
-function getCellElements (currentRowElement) {
+function getCellElements(currentRowElement) {
     return currentRowElement.querySelectorAll(".cell")
 }
 
 
 // YOUR CODE GOES HERE
+
+replaceAllButton.addEventListener('click', function () {
+    console.log('replace button clicked')
+
+    let findString = findInput.value
+    let replaceString = replaceInput.value
+
+    console.log(findString)
+    console.log(replaceString)
+
+
+    for (let rowIndex = 0; rowIndex < rowElements.length; rowIndex++) {
+
+        console.log(rowIndex)
+
+        searchRow = getCellElements(rowElements[rowIndex])
+        console.log(searchRow)
+        const cellElements = Array.from(searchRow)
+        console.log(cellElements)
+
+
+
+        for (let cellIndex = 0; cellIndex < cellElements.length; cellIndex++) {
+
+            let cellSearch = cellElements[cellIndex]
+            console.log(cellSearch)
+
+            function findReplace(findThat, replaceWithThis) {
+
+                return cellElements[cellIndex].innerHTML.replace(findThat, replaceWithThis)
+            }
+
+            if (cellElements[cellIndex].innerHTML.includes(findString.trim())) {
+
+                // console.log(findReplace(findString, replaceString))
+
+                cellElements[cellIndex].innerHTML = findReplace(findString, replaceString)
+
+                // cellElements[cellIndex].innerHTML = cellElements[cellIndex].innerHTML.replace(findString, replaceString)
+
+                console.log(cellElements[cellIndex].innerHTML)
+
+            }
+
+        }
+    }
+}
+)
+
 
 
 // One last thing: dedicate very careful attention to using variables and
