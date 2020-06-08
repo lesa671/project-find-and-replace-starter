@@ -34,34 +34,31 @@ replaceAllButton.addEventListener('click', function () {
 
     for (let rowIndex = 0; rowIndex < rowElements.length; rowIndex++) {
 
-        console.log(rowIndex)
+        console.log(rowIndex) /*to see that outer loop is working*/
 
         searchRow = getCellElements(rowElements[rowIndex])
-        console.log(searchRow)
+        // console.log(searchRow) /*to see what happens*/
         const cellElements = Array.from(searchRow)
-        console.log(cellElements)
+        // console.log(cellElements) /*to see if array is created*/
 
 
 
         for (let cellIndex = 0; cellIndex < cellElements.length; cellIndex++) {
 
             let cellSearch = cellElements[cellIndex]
-            console.log(cellSearch)
+            console.log(cellSearch) /*to see the contents of each item in the cellElements array more clearly*/
 
             function findReplace(findThat, replaceWithThis) {
 
-                return cellElements[cellIndex].innerHTML.replace(findThat, replaceWithThis)
+                return cellSearch.innerHTML.replace(findThat, replaceWithThis)
             }
 
-            if (cellElements[cellIndex].innerHTML.includes(findString.trim())) {
+            if (cellSearch.innerHTML.includes(findString.trim())) {
 
-                // console.log(findReplace(findString, replaceString))
+                cellSearch.innerHTML = findReplace(findString, replaceString)
 
-                cellElements[cellIndex].innerHTML = findReplace(findString, replaceString)
-
-                // cellElements[cellIndex].innerHTML = cellElements[cellIndex].innerHTML.replace(findString, replaceString)
-
-                console.log(cellElements[cellIndex].innerHTML)
+                // console.log(findReplace(findString, replaceString)) /*check to see what the function returned*/
+                // console.log(cellSearch.innerHTML) /*check to see result and if matches function return*/
 
             }
 
