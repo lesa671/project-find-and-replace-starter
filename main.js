@@ -53,7 +53,7 @@ replaceAllButton.addEventListener('click', function () {
                 return cellSearch.innerHTML.replace(findThat, replaceWithThis)
             }
 
-            if (cellSearch.innerHTML.includes(findString.trim())) {
+            while (cellSearch.innerHTML.includes(findString.trim())) {
 
                 cellSearch.innerHTML = findReplace(findString, replaceString)
 
